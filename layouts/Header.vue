@@ -33,9 +33,9 @@ export default {
           to: { name: 'index' },
         },
         {
-          title: 'about',
+          title: 'profile',
           icon: 'lightbulb',
-          to: { name: 'about' },
+          to: { name: 'profile' },
         },
         {
           title: 'blog',
