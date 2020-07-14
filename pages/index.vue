@@ -27,12 +27,44 @@
         </div>
       </div>
     </section>
+    <section class="section container">
+      {{ posts }}
+      <template v-if="posts.length">
+        <ul class="columns is-multiline is-tablet">
+          <li
+            v-for="(post, i) in posts"
+            :key="i"
+            class="column is-one-third-tablet"
+          >
+            <post-card :post="post" />
+            <span>{{ post.fields.body }}</span>
+          </li>
+        </ul>
+      </template>
+      <template v-else>
+        投稿された記事はありません。
+      </template>
+    </section>
   </div>
 </template>
 
 <script>
+import client from '~/plugins/contentful'
+import PostCard from '~/components/PostCard'
 export default {
   name: 'HomePage',
+  components: { PostCard },
+  async asyncData({ env }) {
+    let posts = []
+    await client
+      .getEntries({
+        content_type: env.CTF_BLOG_POST_TYPE_ID,
+        order: '-fields.publishDate',
+      })
+      .then((res) => (posts = res.items))
+      .catch((err) => console.error(err))
+    return { posts }
+  },
 }
 </script>
 

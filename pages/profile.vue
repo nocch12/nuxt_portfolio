@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import AboutPage from '@/components/templates/AboutPage'
-import SkillsPage from '@/components/templates/SkillsPage'
-import WorksPage from '@/components/templates/WorksPage'
+import AboutPage from '~/components/templates/AboutPage'
+import SkillsPage from '~/components/templates/SkillsPage'
+import WorksPage from '~/components/templates/WorksPage'
 
 export default {
   components: {
