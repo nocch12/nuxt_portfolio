@@ -2,7 +2,7 @@
   <div>
     <Header />
 
-    <section class="main-content columns">
+    <section class="main-content">
       <!-- <aside class="column is-2 section">
         <p class="menu-label is-hidden-touch">
           General
@@ -15,10 +15,7 @@
           </li>
         </ul>
       </aside> -->
-
-      <div class="container column">
-        <nuxt />
-      </div>
+      <nuxt />
     </section>
   </div>
 </template>
@@ -31,3 +28,20 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+$spaces: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50); // 0から50pxまでを用意
+$sides: (top, bottom, left, right); // 方向性
+
+@each $space in $spaces {
+  @each $side in $sides {
+    .m#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+
+    .p#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+}
+</style>

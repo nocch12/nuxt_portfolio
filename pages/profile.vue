@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <section class="container section">
     <b-tabs type="is-toggle" expanded>
       <template v-for="tab in tabs">
         <b-tab-item :key="tab.label" :label="tab.label">
