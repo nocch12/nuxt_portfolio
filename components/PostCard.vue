@@ -1,8 +1,8 @@
 <template>
-  <a class="card is-block">
+  <nuxt-link :to="linkTo" class="card is-block">
     <div class="card-image">
       <figure class="image is-4by3">
-        <img :src="imageSrc" :alt="post.fields.title" />
+        <img :src="setEyeCatch(post).url" :alt="setEyeCatch(post).title" />
       </figure>
     </div>
     <div class="card-content">
@@ -19,10 +19,12 @@
         <time datetime="2016-1-1">{{ publishDate }}</time>
       </div>
     </div>
-  </a>
+  </nuxt-link>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   props: {
     post: {
@@ -31,12 +33,16 @@ export default {
     },
   },
   computed: {
+    ...mapGetters(['setEyeCatch']),
     publishDate() {
       return this.post.fields.publishDate
     },
     imageSrc() {
       if (this.post.fields.image) return this.post.fields.image.fields.file.url
       else return 'https://bulma.io/images/placeholders/1280x960.png'
+    },
+    linkTo() {
+      return { name: 'posts-slug', params: { slug: this.post.fields.slug } }
     },
   },
 }
