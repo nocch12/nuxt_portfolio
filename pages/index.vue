@@ -28,16 +28,10 @@
       </div>
     </section>
     <section class="section container">
-      {{ posts }}
       <template v-if="posts.length">
-        <ul class="columns is-multiline is-tablet">
-          <li
-            v-for="(post, i) in posts"
-            :key="i"
-            class="column is-one-third-tablet"
-          >
+        <ul>
+          <li v-for="(post, i) in posts" :key="i" class="mb-20 is-block">
             <post-card :post="post" />
-            <span>{{ post.fields.body }}</span>
           </li>
         </ul>
       </template>
