@@ -1,3 +1,5 @@
+const client = require('./plugins/contentful').default
+
 export default {
   /*
    ** Nuxt rendering mode
@@ -75,5 +77,22 @@ export default {
     CTF_SPACE_ID: process.env.CTF_SPACE_ID,
     CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID,
     CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN,
+  },
+
+  generate: {
+    routes: ()=> {
+      return Promise.all([
+        client.getEntries({
+          content_type: process.env.CTF_BLOG_POST_TYPE_ID,
+        })
+      ])
+      .then(([ posts ]) => {
+        return [
+          ...posts.map((post) => {
+            return { route: `posts/${post.fields.slug}`, payload: post }
+          })
+        ]
+      })
+    }
   },
 }
