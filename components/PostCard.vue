@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="linkTo" class="card is-block">
+  <nuxt-link :to="linkTo" class="card is-block-mobile is-flex-tablet">
     <div class="card-image">
       <figure class="image is-4by3">
         <img :src="setEyeCatch(post).url" :alt="setEyeCatch(post).title" />
@@ -50,10 +50,6 @@ export default {
 
 <style lang="scss" scoped>
 @media screen and(min-width: 769px) {
-  .card {
-    display: flex;
-  }
-
   .card-image {
     width: 200px;
   }

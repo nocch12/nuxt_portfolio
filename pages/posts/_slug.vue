@@ -1,13 +1,13 @@
 <template>
-  <div>
+  <section class="container section">
+    <h2 class="title is-3 mb-20">{{ currentPost.fields.title }}</h2>
     <img
       :src="setEyeCatch(currentPost).url"
       :alt="setEyeCatch(currentPost).title"
     />
-    <span>{{ currentPost.fields.title }}</span>
     <span>{{ currentPost.fields.publishDate }}</span>
-    <span>{{ currentPost.fields.body }}</span>
-  </div>
+    <div class="main-content">{{ currentPost.fields.body }}</div>
+  </section>
 </template>
 
 <script>
