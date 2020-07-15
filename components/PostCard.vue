@@ -1,5 +1,5 @@
 <template>
-  <a class="card">
+  <a class="card is-block">
     <div class="card-image">
       <figure class="image is-4by3">
         <img :src="imageSrc" :alt="post.fields.title" />
