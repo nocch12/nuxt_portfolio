@@ -22,3 +22,13 @@ body {
     font-family: 'Source Code Pro', monospace;
   }
 }
+
+.post-category-tag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1;
+  color: #fff;
+  padding: 0 .6rem;
+  border-radius: 50rem;
+}

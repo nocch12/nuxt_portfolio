@@ -4,6 +4,12 @@
     class="card is-block-mobile is-flex-tablet"
   >
     <div class="card-image">
+      <span
+        class="post-category-tag"
+        :style="{ background: categoryColor(post.fields.category) }"
+      >
+        {{ post.fields.category.fields.name }}
+      </span>
       <figure class="image is-4by3">
         <img :src="setEyeCatch(post).url" :alt="setEyeCatch(post).title" />
       </figure>
@@ -43,6 +49,20 @@ export default {
     imageSrc() {
       if (this.post.fields.image) return this.post.fields.image.fields.file.url
       else return 'https://bulma.io/images/placeholders/1280x960.png'
+    },
+    categoryColor() {
+      return (category) => {
+        switch (category.fields.name) {
+          case 'php':
+            return '#C73A31'
+          case 'JavaScript':
+            return '#236244'
+          case 'コラム':
+            return 'blue'
+          default:
+            return 'grey'
+        }
+      }
     },
   },
 }
