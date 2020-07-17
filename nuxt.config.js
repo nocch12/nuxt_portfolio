@@ -84,15 +84,13 @@ export default {
       const [langName, fileName] = lang.split(':')
       if (langName && hljs.getLanguage(langName)) {
         try {
-          const className = fileName ? 'hljs has-file-name' : 'hljs'
-          let res = `<pre class="${className}">`
-          if (fileName) res += `<span class="hljs-file-name">${fileName}</span>`
-          res =
-            res +
-            '<code>' +
+          const tag = fileName || langName
+          return (
+            `<pre class="hljs"><span class="hljs-lang">${tag}</span>` +
+            '<code class>' +
             hljs.highlight(langName, str, true).value +
             '</code></pre>'
-          return res
+          )
         } catch (__) {}
       }
       // 言語設定がない場合、プレーンテキストとして表示する

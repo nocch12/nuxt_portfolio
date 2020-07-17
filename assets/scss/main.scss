@@ -31,18 +31,19 @@ $sides: (top, bottom, left, right); // 方向性
 
 // highlight.js
 .hljs {
-  &.has-file-name {
-    position: relative;
-    padding-top: 2rem;
-  }
+  padding: 1rem;
+  position: relative;
 
-  .hljs-file-name {
-    position: absolute;
-    top: 0;
-    left: 0;
+  &-lang {
+    display: inline-block;
+    transform: translateY(-1rem);
     color: #fff;
     background: rgba(200, 200, 200, 0.5);
     padding: 0 0.6rem;
+  }
+
+  code {
+    display: block;
   }
 }
 
