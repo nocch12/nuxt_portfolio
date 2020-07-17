@@ -6,7 +6,7 @@
       :alt="setEyeCatch(currentPost).title"
     />
     <span>{{ currentPost.fields.publishDate }}</span>
-    <bread-crumbs :items="breadcrumbs" />
+    <Breadcrumbs :add-items="breadcrumbs" />
     <div class="main-content">
       <div v-html="$md.render(currentPost.fields.body)"></div>
     </div>
@@ -15,28 +15,30 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import BreadCrumbs from '~/components/BreadCrumbs'
 
 export default {
-  components: { BreadCrumbs },
   async asyncData({ payload, store, params, error }) {
     const currentPost =
       payload ||
       (await store.state.posts.find((post) => post.fields.slug === params.slug))
 
     if (currentPost) {
-      return { currentPost }
+      return {
+        currentPost,
+        category: currentPost.fields.category,
+      }
     } else {
       return error({ statusCode: 400 })
     }
   },
   computed: {
-    ...mapGetters(['setEyeCatch']),
+    ...mapGetters(['setEyeCatch', 'linkTo']),
     breadcrumbs() {
-      const category = this.currentPost.fields.category
       return [
-        { name: 'ホーム', to: '/' },
-        { name: category.fields.name, to: '#' },
+        {
+          name: this.category.fields.name,
+          to: this.linkTo('categories', this.category),
+        },
       ]
     },
   },

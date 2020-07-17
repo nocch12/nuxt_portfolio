@@ -4,12 +4,13 @@
     class="card is-block-mobile is-flex-tablet"
   >
     <div class="card-image">
-      <span
+      <nuxt-link
         class="post-category-tag"
+        :to="linkTo('categories', post.fields.category)"
         :style="{ background: categoryColor(post.fields.category) }"
       >
         {{ post.fields.category.fields.name }}
-      </span>
+      </nuxt-link>
       <figure class="image is-4by3">
         <img :src="setEyeCatch(post).url" :alt="setEyeCatch(post).title" />
       </figure>

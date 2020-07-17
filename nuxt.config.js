@@ -47,7 +47,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ['plugins/contentful'],
+  plugins: ['plugins/contentful', 'plugins/components'],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -130,10 +130,16 @@ export default {
         client.getEntries({
           content_type: process.env.CTF_BLOG_POST_TYPE_ID,
         }),
-      ]).then(([posts]) => {
+      ]).then(([posts, categories]) => {
         return [
           ...posts.items.map((post) => {
             return { route: `posts/${post.fields.slug}`, payload: post }
+          }),
+          ...categories.items.map((category) => {
+            return {
+              route: `categories/${category.fields.slug}`,
+              payload: category,
+            }
           }),
         ]
       })
