@@ -130,6 +130,9 @@ export default {
         client.getEntries({
           content_type: process.env.CTF_BLOG_POST_TYPE_ID,
         }),
+        client.getEntries({
+          content_type: 'category',
+        }),
       ]).then(([posts, categories]) => {
         return [
           ...posts.items.map((post) => {
