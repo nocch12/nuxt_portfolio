@@ -17,7 +17,6 @@
       </aside> -->
       <nuxt />
     </section>
-
     <Footer />
   </div>
 </template>
@@ -32,20 +31,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-$spaces: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50); // 0から50pxまでを用意
-$sides: (top, bottom, left, right); // 方向性
-
-@each $space in $spaces {
-  @each $side in $sides {
-    .m#{str-slice($side, 0, 1)}-#{$space} {
-      margin-#{$side}: #{$space}px !important;
-    }
-
-    .p#{str-slice($side, 0, 1)}-#{$space} {
-      padding-#{$side}: #{$space}px !important;
-    }
-  }
-}
-</style>

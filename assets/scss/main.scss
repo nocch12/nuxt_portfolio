@@ -1,6 +1,32 @@
-body {
-  font-family: 'Montserrat', '游ゴシック', YuGothic, 'ヒラギノ角ゴ ProN W3',
-    'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+$header-height: 52px;
+$footer-height: 72px;
+
+// header
+#header {
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+.main-content {
+  padding-top: $header-height;
+  min-height: calc(100vh - #{$footer-height});
+}
+
+// spacer
+$spaces: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50); // 0から50pxまでを用意
+$sides: (top, bottom, left, right); // 方向性
+
+@each $space in $spaces {
+  @each $side in $sides {
+    .m#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+
+    .p#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
 }
 
 // highlight.js
@@ -17,10 +43,6 @@ body {
     color: #fff;
     background: rgba(200, 200, 200, 0.5);
     padding: 0 0.6rem;
-  }
-
-  code {
-    font-family: 'Source Code Pro', monospace;
   }
 }
 

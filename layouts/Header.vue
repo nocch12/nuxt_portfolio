@@ -1,9 +1,9 @@
 <template>
-  <header>
+  <header id="header">
     <b-navbar shadow>
       <template slot="brand">
         <b-navbar-item tag="router-link" :to="{ path: '/' }">
-          <h1>Kohki Ohno</h1>
+          <h1 class="has-text-weight-bold">Kohki Ohno</h1>
         </b-navbar-item>
       </template>
 

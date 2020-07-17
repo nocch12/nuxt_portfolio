@@ -1,12 +1,12 @@
 <template>
   <section class="container section">
+    <Breadcrumbs :add-items="breadcrumbs" />
+    <span>{{ currentPost.fields.publishDate }}</span>
     <h2 class="title is-3 mb-20">{{ currentPost.fields.title }}</h2>
     <img
       :src="setEyeCatch(currentPost).url"
       :alt="setEyeCatch(currentPost).title"
     />
-    <span>{{ currentPost.fields.publishDate }}</span>
-    <Breadcrumbs :add-items="breadcrumbs" />
     <div class="main-content">
       <div v-html="$md.render(currentPost.fields.body)"></div>
     </div>
