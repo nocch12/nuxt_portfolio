@@ -39,9 +39,9 @@ export default {
    ** Global CSS
    */
   css: [
-    '~/assets/scss/buefy.scss',
-    'highlight.js/styles/atom-one-dark.css',
-    '~/assets/scss/main.scss',
+    '~/assets/scss/buefy.scss', // buefyの設定
+    'highlight.js/styles/atom-one-dark.css', // highlight.jsのcss
+    '~/assets/scss/main.scss', // 独自スタイル
   ],
   /*
    ** Plugins to load before mounting the App

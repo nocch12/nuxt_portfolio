@@ -3,6 +3,7 @@ body {
     'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
 }
 
+// highlight.js
 .hljs {
   &.has-file-name {
     position: relative;
@@ -23,6 +24,7 @@ body {
   }
 }
 
+// カテゴリータグ
 .post-category-tag {
   position: absolute;
   top: 1rem;
