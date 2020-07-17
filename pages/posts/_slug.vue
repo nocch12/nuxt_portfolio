@@ -6,7 +6,9 @@
       :alt="setEyeCatch(currentPost).title"
     />
     <span>{{ currentPost.fields.publishDate }}</span>
-    <div class="main-content">{{ currentPost.fields.body }}</div>
+    <div class="main-content">
+      <div v-html="$md.render(currentPost.fields.body)"></div>
+    </div>
   </section>
 </template>
 

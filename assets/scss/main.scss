@@ -1,0 +1,24 @@
+body {
+  font-family: 'Montserrat', '游ゴシック', YuGothic, 'ヒラギノ角ゴ ProN W3',
+    'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+}
+
+.hljs {
+  &.has-file-name {
+    position: relative;
+    padding-top: 2rem;
+  }
+
+  .hljs-file-name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    background: rgba(200, 200, 200, 0.5);
+    padding: 0 0.6rem;
+  }
+
+  code {
+    font-family: 'Source Code Pro', monospace;
+  }
+}
