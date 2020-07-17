@@ -1,5 +1,8 @@
 <template>
-  <nuxt-link :to="linkTo" class="card is-block-mobile is-flex-tablet">
+  <nuxt-link
+    :to="linkTo('posts', post)"
+    class="card is-block-mobile is-flex-tablet"
+  >
     <div class="card-image">
       <figure class="image is-4by3">
         <img :src="setEyeCatch(post).url" :alt="setEyeCatch(post).title" />
@@ -33,16 +36,13 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(['setEyeCatch']),
+    ...mapGetters(['setEyeCatch', 'linkTo']),
     publishDate() {
       return this.post.fields.publishDate
     },
     imageSrc() {
       if (this.post.fields.image) return this.post.fields.image.fields.file.url
       else return 'https://bulma.io/images/placeholders/1280x960.png'
-    },
-    linkTo() {
-      return { name: 'posts-slug', params: { slug: this.post.fields.slug } }
     },
   },
 }

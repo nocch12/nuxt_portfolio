@@ -107,6 +107,9 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
+  router: {
+    middleware: ['getContentful'],
+  },
   axios: {},
   /*
    ** Build configuration
