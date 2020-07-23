@@ -25,6 +25,12 @@
       </div>
 
       <div class="content">
+        <div v-if="post.fields.tags">
+          <b-tag v-for="tag in post.fields.tags" :key="tag.sys.id" class="mr-5">
+            <b-icon icon="tag" size="is-small" />
+            <span>{{ tag.fields.name }}</span>
+          </b-tag>
+        </div>
         <br />
         <time datetime="2016-1-1">{{ publishDate }}</time>
       </div>
