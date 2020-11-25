@@ -18,7 +18,7 @@
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/markdownit": "^1.2.10",
     "contentful": "^7.14.5",
-    "highlight.js": "^10.1.1",
+    "highlight.js": "^10.1.2",
     "nuxt": "^2.13.0",
     "nuxt-buefy": "^0.3.31",
     "sass-loader": "^9.0.2"
